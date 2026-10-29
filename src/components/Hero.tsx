@@ -2,6 +2,9 @@
 import marciVideo from '../assets/marciupdated3.mp4'
 import logo from '../assets/Logo.png'
 import { useState } from 'react'
+import { Button } from "@/components/ui/button"
+import { Field } from "@/components/ui/field"
+import { Input } from "@/components/ui/input"
 
 const Hero = () => {
   const [userPersona, setUserPersona] = useState('Buying');
@@ -23,8 +26,8 @@ const Hero = () => {
       <div className='relative min-h-full min-w-full flex items-center z-5 p-12'>
         <div className='flex flex-col gap-2'>
           <h1 className='text-white text-5xl font-normal'>Find your <i>Dream Home</i> in your <br /><i>Dream Location</i></h1>
-          <p className='text-white font-normal'>Where a home is, life begins. Start anew with Marci. User is {userPersona}</p>
-          <div className='relative flex bg-white max-w-[240px] rounded-md'>
+          <p className='text-white font-normal'>Where a home is, life begins. Start anew with Marci.</p>
+          {/* <div className='relative flex bg-white max-w-[240px] rounded-md'>
 
             <div className={`absolute top-0 left-0 w-1/2 h-full rounded-sm bg-[#1D1517] transition-transform duration-300 ease-in-out ${userPersona === 'Buying' ? 'translate-x-0' : 'translate-x-full' }`} />
 
@@ -41,7 +44,7 @@ const Hero = () => {
             >
               <p>Selling</p>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

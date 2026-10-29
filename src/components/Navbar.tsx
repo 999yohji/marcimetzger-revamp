@@ -1,9 +1,8 @@
 import { Menu } from 'lucide-react'
-import logo from '../assets/Logo.png'
 
 const Navbar = () => {
   return (
-    <div className='absolute z-999 min-w-full min-h-[10svh] flex justify-between gap-16 items-center px-16'>
+    <div className='absolute z-999 min-w-full min-h-[10svh] flex justify-end gap-16 items-center px-16'>
       {/* <img src={logo} alt="Logo" className='w-[10%]'/> */}
       <p>a</p>
       <div className='flex items-center gap-16'>
