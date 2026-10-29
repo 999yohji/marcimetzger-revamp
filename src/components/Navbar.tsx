@@ -1,15 +1,17 @@
 import { Menu } from 'lucide-react'
-import React from 'react'
+import logo from '../assets/Logo.png'
 
 const Navbar = () => {
   return (
-    <div className='absolute z-999 min-w-full min-h-[10svh] flex justify-end items-center bg-red-500 px-4'>
-      <p>test 1</p>
-      <p>test 1</p>
-      <p>test 1</p>
-      <p>test 1</p>
-      <p>test 5</p>
-      <Menu />
+    <div className='absolute z-999 min-w-full min-h-[10svh] flex justify-between gap-16 items-center px-16'>
+      <img src={logo} alt="Logo" />
+      <div className='flex items-center gap-16'>
+        <p className='text-white'>PROPERTIES</p>
+        <p className='text-white'>SERVICES</p>
+        <p className='text-white'>ABOUT</p>
+        <p className='text-white'>CONTACT</p>
+        <Menu className='text-white' size={16} />
+      </div>
     </div>
   )
 }
