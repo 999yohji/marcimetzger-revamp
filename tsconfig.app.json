@@ -8,6 +8,15 @@
     "allowArbitraryExtensions": true,
     "skipLibCheck": true,
 
+    /* Shadcn/ui addition */
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
