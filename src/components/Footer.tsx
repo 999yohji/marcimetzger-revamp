@@ -5,14 +5,11 @@ import { FaLinkedin, FaFacebook, FaInstagram, FaYelp } from 'react-icons/fa';
 const Footer = () => {
   return (
     <div className="relative isolate w-full px-6 sm:px-12 md:px-16 py-16 flex justify-center items-center overflow-hidden bg-black">
-      {/* Background image & dark overlay */}
       <img src={houseKeys} alt="Footer background" className='absolute -z-10 inset-0 h-full w-full object-cover opacity-40' />
       <div className='absolute -z-10 inset-0 h-full w-full bg-black/80 backdrop-blur-xs' />
 
-      {/* Main container: stacks vertically on mobile (flex-col), turns into a 2-column row on medium screens and up (md:flex-row) */}
       <div className='w-full max-w-7xl flex flex-col md:flex-row justify-between items-start md:items-center gap-12'>
         
-        {/* Left Column: Brand & Socials */}
         <div className='flex flex-col gap-4'>
           <div>
             <h1 className='text-white font-[Playfair_Display] text-3xl sm:text-4xl'>Marci Metzger</h1>
@@ -26,7 +23,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Right Column: Contact Details (stacked vertically, scales safely on all screens) */}
         <div className='flex flex-col gap-4 text-white/90'>
           <div className='flex items-center gap-3'>
             <Phone className='text-white shrink-0' size={20} />
