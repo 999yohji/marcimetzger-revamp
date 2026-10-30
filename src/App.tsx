@@ -6,7 +6,9 @@ import PropertySpotlight from './components/PropertySpotlight'
 import AboutMe from './components/AboutMe'
 import Affiliations from './components/Affiliations'
 import Testimonials from './components/Testimonials'
+import SearchBy from './components/SearchBy'
 import Footer from './components/Footer'
+
 
 const App = () => {
   return (
@@ -18,6 +20,7 @@ const App = () => {
       <AboutMe />
       <Affiliations />
       <Testimonials />
+      <SearchBy />
       <Footer />
     </>
   )

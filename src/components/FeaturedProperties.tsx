@@ -23,7 +23,18 @@ const FeaturedProperties = () => {
         trigger: container.current,
         start: 'top 70%',
       },
-    })
+    }),
+      gsap.from('.x-swipe', {
+        x: -80,
+        opacity: 0,
+        duration: 1,
+        ease: 'power3.out',
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: container.current,
+          start: 'top 70%',
+        },
+      })
   }, { scope: container })
 
   return (
@@ -59,7 +70,7 @@ const FeaturedProperties = () => {
               <p>A suburban mediterranean-style villa with a lanai and a pool right outside, surrounded with<br />multitudes of miniature trees and sprawling greenery.</p>
             </div>
           </div>
-          <div className='flex justify-end'>
+          <div className='x-swipe flex justify-end'>
             <Button
               variant="outline"
               size='lg'
