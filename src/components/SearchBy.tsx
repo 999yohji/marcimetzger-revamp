@@ -18,7 +18,10 @@ const SearchBy = () => {
   const [isLifestyleHovered, setIsLifestyleHovered] = useState(false)
 
   const { contextSafe } = useGSAP(() => {
-    gsap.set('.learn-more', { y: 20 })
+    // Only run GSAP set on larger screens where hover interactions occur
+    if (window.innerWidth >= 1024) {
+      gsap.set('.learn-more', { y: 20 })
+    }
 
     gsap.from('.reveal', {
       y: 80,
@@ -34,6 +37,7 @@ const SearchBy = () => {
   }, { scope: container })
 
   const showLearnMore = contextSafe((e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 1024) return // Skip GSAP hover on mobile
     gsap.to(e.currentTarget.querySelector('.learn-more'), {
       y: 0,
       opacity: 1,
@@ -44,6 +48,7 @@ const SearchBy = () => {
   })
 
   const hideLearnMore = contextSafe((e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth < 1024) return // Skip GSAP hover on mobile
     gsap.to(e.currentTarget.querySelector('.learn-more'), {
       y: 20,
       opacity: 0,
@@ -54,13 +59,15 @@ const SearchBy = () => {
   })
 
   return (
-    <div ref={container} className='min-h-svh bg-[#ECECEC] flex flex-col p-16 gap-4'>
-      <div className='reveal'>
-        <h1><i>Search By</i></h1>
-        <p>Help us help you. What are you looking for?</p>
+    <div ref={container} className='min-h-svh bg-[#ECECEC] flex flex-col p-6 sm:p-12 lg:p-16 gap-6 sm:gap-8'>
+      <div className='reveal text-center lg:text-left'>
+        <h1 className='text-3xl sm:text-4xl lg:text-5xl font-normal'><i>Search By</i></h1>
+        <p className='text-sm sm:text-base text-black/70 mt-1'>Help us help you. What are you looking for?</p>
       </div>
 
-      <div className='flex flex-1 px-48 py-8 gap-16'>
+      <div className='flex flex-col lg:flex-row flex-1 px-0 sm:px-8 lg:px-20 py-4 sm:py-8 gap-6 sm:gap-8 lg:gap-16'>
+        
+        {/* Neighborhood Card */}
         <div
           onMouseEnter={(e) => {
             setIsNeighborhoodHovered(true)
@@ -70,7 +77,7 @@ const SearchBy = () => {
             setIsNeighborhoodHovered(false)
             hideLearnMore(e)
           }}
-          className='reveal relative isolate flex-center flex-1 border-4 cursor-pointer overflow-hidden'
+          className='reveal relative isolate flex-center flex-1 min-h-[300px] sm:min-h-[400px] lg:min-h-0 border-2 sm:border-4 cursor-pointer overflow-hidden rounded-sm'
         >
           <img 
             src={neighborhood} 
@@ -88,12 +95,15 @@ const SearchBy = () => {
           />
 
           <div className='absolute inset-0 z-10 bg-black/40 backdrop-blur-xs' />
-          <div className='relative z-20 flex flex-col items-center gap-8'>
-            <h1 className='text-white font-normal'>Search by <i>Neighborhood</i></h1>
-            <p className='learn-more opacity-0 flex-center text-white gap-2'>LEARN MORE <ArrowRight /></p>
+          <div className='relative z-20 flex flex-col items-center gap-4 sm:gap-8 p-6 text-center'>
+            <h1 className='text-white text-2xl sm:text-3xl lg:text-4xl font-normal'>Search by <i>Neighborhood</i></h1>
+            <p className='learn-more opacity-100 lg:opacity-0 flex-center text-white gap-2 text-sm sm:text-base font-medium tracking-wider'>
+              LEARN MORE <ArrowRight className='w-4 h-4 sm:w-5 sm:h-5' />
+            </p>
           </div>
         </div>
 
+        {/* Lifestyle Card */}
         <div
           onMouseEnter={(e) => {
             setIsLifestyleHovered(true)
@@ -103,7 +113,7 @@ const SearchBy = () => {
             setIsLifestyleHovered(false)
             hideLearnMore(e)
           }}
-          className='reveal relative isolate flex-center flex-1 border-4 cursor-pointer overflow-hidden'
+          className='reveal relative isolate flex-center flex-1 min-h-[300px] sm:min-h-[400px] lg:min-h-0 border-2 sm:border-4 cursor-pointer overflow-hidden rounded-sm'
         >
           <img 
             src={lifestyle} 
@@ -121,11 +131,14 @@ const SearchBy = () => {
           />
 
           <div className='absolute inset-0 z-10 bg-black/40 backdrop-blur-xs' />
-          <div className='relative z-20 flex flex-col items-center gap-8'>
-            <h1 className='text-white font-normal'>Search by <i>Lifestyle</i></h1>
-            <p className='learn-more opacity-0 flex-center text-white gap-2'>LEARN MORE <ArrowRight /></p>
+          <div className='relative z-20 flex flex-col items-center gap-4 sm:gap-8 p-6 text-center'>
+            <h1 className='text-white text-2xl sm:text-3xl lg:text-4xl font-normal'>Search by <i>Lifestyle</i></h1>
+            <p className='learn-more opacity-100 lg:opacity-0 flex-center text-white gap-2 text-sm sm:text-base font-medium tracking-wider'>
+              LEARN MORE <ArrowRight className='w-4 h-4 sm:w-5 sm:h-5' />
+            </p>
           </div>
         </div>
+
       </div>
     </div>
   )
