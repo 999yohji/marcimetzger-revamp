@@ -8,8 +8,8 @@ const Hero = () => {
   const [videoReady, setVideoReady] = useState(false)
 
   return (
-    <div className='relative isolate h-svh w-full overflow-hidden bg-black'>
-      <div className='absolute z-1 w-full h-[30%] bg-linear-to-b from-black to-transparent opacity-75' />
+    <div className="relative isolate flex min-h-svh w-full items-center overflow-hidden bg-black">
+      <div className="absolute top-0 z-1 h-[30%] w-full bg-linear-to-b from-black to-transparent opacity-75" />
 
       <video
         src={marciVideo}
@@ -18,40 +18,43 @@ const Hero = () => {
         muted
         playsInline
         onPlaying={() => setVideoReady(true)}
-        className={`absolute inset-0 z-[-1] h-full w-full object-cover pointer-events-none select-none transition-opacity duration-2000 ${
-          videoReady ? 'opacity-100' : 'opacity-0'}`} /* abso -1 z-index positioning here since it has to be "behind" */
-        unselectable='on'
+        className={`pointer-events-none absolute inset-0 z-[-1] h-full w-full select-none object-cover transition-opacity duration-2000 ${videoReady ? 'opacity-100' : 'opacity-0'
+          }`}
       />
 
-      <div className='relative min-h-full min-w-full flex items-center z-5 p-12'>
-        <div className='flex flex-col gap-2'>
-          <h1 className='text-white text-5xl font-normal'>Find your <i>Dream Home</i> in your <br /><i>Dream Location</i></h1>
-          <p className='text-white font-normal'>Where a home is, life begins. Start anew with Marci.</p>
-          <div className='flex gap-2'>
+      <div className="relative z-5 w-full p-6 sm:p-8 lg:p-12">
+        <div className="flex flex-col gap-2">
+          <h1 className="text-3xl font-normal text-white sm:text-4xl lg:text-5xl">
+            Find your <i>Dream Home</i> in your <br className="hidden md:block" />
+            <i>Dream Location</i>
+          </h1>
+          <p className="font-normal text-white">Where a home is, life begins. Start anew with Marci.</p>
+          <div className="flex flex-col gap-2 sm:flex-row">
             <Button
-              variant='secondary'
-              size='lg'
-              className='cursor-pointer p-6'
+              variant="secondary"
+              size="lg"
+              className="w-full cursor-pointer p-6 sm:w-auto"
             >
               <p>BROWSE PROPERTIES</p>
             </Button>
             <Button
               variant="outline"
-              size='lg'
-              className="cursor-pointer p-6 bg-white/10 text-white border-white/40 backdrop-blur-sm hover:bg-white/20 hover:text-white"
+              size="lg"
+              className="w-full cursor-pointer border-white/40 bg-white/10 p-6 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:w-auto"
             >
-              <p>
-                BOOK A CALL
-              </p>
+              <p>BOOK A CALL</p>
             </Button>
           </div>
         </div>
       </div>
 
+      <img
+        src={logo}
+        alt="Logo"
+        className="absolute bottom-8 right-8 z-5 hidden w-[25%] sm:block md:w-[20%] lg:bottom-16 lg:right-24"
+      />
 
-      <img src={logo} alt="Logo" className='absolute bottom-16 right-24 w-[20%] z-5' />
-
-      <div className='absolute z-1 bottom-0 w-full h-[30%] bg-linear-to-t from-black to-transparent opacity-75' />
+      <div className="absolute bottom-0 z-1 h-[30%] w-full bg-linear-to-t from-black to-transparent opacity-75" />
     </div>
   )
 }
