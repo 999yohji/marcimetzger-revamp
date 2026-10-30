@@ -24,7 +24,6 @@ const AboutMe = () => {
   }, { scope: container })
 
   return (
-    // Replaced px-64 with responsive padding (px-6 sm:px-12 lg:px-24 xl:px-48) and added overflow-hidden to prevent GSAP scrollbars
     <div ref={container} className="min-h-[70svh] flex flex-col gap-12 sm:gap-16 px-6 sm:px-12 lg:px-24 xl:px-36 py-12 sm:py-16 overflow-hidden">
 
       <hr className='border-[#1D151760]' />
@@ -34,10 +33,8 @@ const AboutMe = () => {
         <p className='text-sm sm:text-base text-black/70 mt-1'>Up close and personal.</p>
       </div>
 
-      {/* Main Content Layout: Stacks vertically on mobile/tablet (flex-col), side-by-side on large screens (lg:flex-row) */}
       <div className='flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12'>
         
-        {/* Profile Image with fixed aspect ratio / max-width so it never overflows */}
         <img 
           src={selfPhoto} 
           alt="Marci's Portrait" 
@@ -46,8 +43,7 @@ const AboutMe = () => {
 
         <div className='flex flex-col gap-6 sm:gap-8 flex-1'>
           
-          {/* Stats Row: Stacks vertically on tiny screens, side-by-side on sm+ */}
-          <div className='flex flex-col sm:flex-row justify-center lg:justify-start gap-8 sm:gap-16 border-y border-[#1D151720] py-6'>
+          <div className='flex flex-col sm:flex-row justify-center gap-8 sm:gap-16 border-y border-[#1D151720] py-6'>
             <div className='reveal flex-center flex-col text-center'>
               <h2 className='font-[Montserrat] text-[#1D1517] text-4xl sm:text-5xl lg:text-6xl font-medium'>$500M+</h2>
               <p className='text-center text-xs sm:text-sm text-black/70 mt-1'>Volume Sold</p>
