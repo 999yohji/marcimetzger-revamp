@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import neighborhood from '../assets/neighborhood.jpg'
+import neighborhoodHover from '../assets/neighborhood-hover.jpg'
 import lifestyle from '../assets/lifestyle.jpg'
+import lifestyleHover from '../assets/lifestyle-hover.jpg'
 import { ArrowRight } from 'lucide-react'
 import { useRef } from 'react'
 import { useGSAP } from "@gsap/react";
@@ -11,6 +13,9 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 const SearchBy = () => {
   const container = useRef<HTMLDivElement>(null)
+
+  const [isNeighborhoodHovered, setIsNeighborhoodHovered] = useState(false)
+  const [isLifestyleHovered, setIsLifestyleHovered] = useState(false)
 
   const { contextSafe } = useGSAP(() => {
     gsap.set('.learn-more', { y: 20 })
@@ -57,11 +62,31 @@ const SearchBy = () => {
 
       <div className='flex flex-1 px-48 py-8 gap-16'>
         <div
-          onMouseEnter={showLearnMore}
-          onMouseLeave={hideLearnMore}
-          className='reveal relative isolate flex-center flex-1 border-4 cursor-pointer'
+          onMouseEnter={(e) => {
+            setIsNeighborhoodHovered(true)
+            showLearnMore(e)
+          }}
+          onMouseLeave={(e) => {
+            setIsNeighborhoodHovered(false)
+            hideLearnMore(e)
+          }}
+          className='reveal relative isolate flex-center flex-1 border-4 cursor-pointer overflow-hidden'
         >
-          <img src={neighborhood} alt="Search by Neighborhood" className='absolute inset-0 z-0 h-full w-full object-cover' />
+          <img 
+            src={neighborhood} 
+            alt="Search by Neighborhood" 
+            className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-300 ease-in-out ${
+              isNeighborhoodHovered ? 'opacity-0' : 'opacity-100'
+            }`} 
+          />
+          <img 
+            src={neighborhoodHover} 
+            alt="Search by Neighborhood Hover" 
+            className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-300 ease-in-out ${
+              isNeighborhoodHovered ? 'opacity-100' : 'opacity-0'
+            }`} 
+          />
+
           <div className='absolute inset-0 z-10 bg-black/40 backdrop-blur-xs' />
           <div className='relative z-20 flex flex-col items-center gap-8'>
             <h1 className='text-white font-normal'>Search by <i>Neighborhood</i></h1>
@@ -70,11 +95,31 @@ const SearchBy = () => {
         </div>
 
         <div
-          onMouseEnter={showLearnMore}
-          onMouseLeave={hideLearnMore}
-          className='reveal relative isolate flex-center flex-1 border-4 cursor-pointer'
+          onMouseEnter={(e) => {
+            setIsLifestyleHovered(true)
+            showLearnMore(e)
+          }}
+          onMouseLeave={(e) => {
+            setIsLifestyleHovered(false)
+            hideLearnMore(e)
+          }}
+          className='reveal relative isolate flex-center flex-1 border-4 cursor-pointer overflow-hidden'
         >
-          <img src={lifestyle} alt="Search by Lifestyle" className='absolute inset-0 z-0 h-full w-full object-cover' />
+          <img 
+            src={lifestyle} 
+            alt="Search by Lifestyle" 
+            className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
+              isLifestyleHovered ? 'opacity-0' : 'opacity-100'
+            }`} 
+          />
+          <img 
+            src={lifestyleHover} 
+            alt="Search by Lifestyle Hover" 
+            className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-700 ease-in-out ${
+              isLifestyleHovered ? 'opacity-100' : 'opacity-0'
+            }`} 
+          />
+
           <div className='absolute inset-0 z-10 bg-black/40 backdrop-blur-xs' />
           <div className='relative z-20 flex flex-col items-center gap-8'>
             <h1 className='text-white font-normal'>Search by <i>Lifestyle</i></h1>
