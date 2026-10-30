@@ -28,7 +28,10 @@ const AboutMe = () => {
 
       <hr className='border-[#1D151760]' />
 
-      <h1 className="reveal font-[Montserrat] font-normal">ABOUT ME</h1>
+      <div className="reveal">
+        <h1><i>About Me</i></h1>
+        <p>Up close and personal.</p>
+      </div>
 
       <div className='flex px-4 gap-8'>
         <img src={selfPhoto} alt="Marci's Portrait" className='reveal' />

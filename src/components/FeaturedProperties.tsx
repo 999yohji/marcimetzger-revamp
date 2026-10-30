@@ -38,7 +38,7 @@ const FeaturedProperties = () => {
   }, { scope: container })
 
   return (
-    <div ref={container} className='min-h-svh flex flex-col p-16 gap-4 bg-[#]'>
+    <div ref={container} className='min-h-svh flex flex-col p-16 gap-4'>
       <div className="flex flex-col md:flex-row gap-20 flex-1">
 
         <div className="flex-1 flex flex-col gap-16">

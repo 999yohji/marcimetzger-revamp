@@ -45,7 +45,7 @@ const Testimonials = () => {
     gsap.from('.x-swipe', {
       x: -80,
       opacity: 0,
-      duration: 1,
+      duration: 2.5,
       ease: 'power3.out',
       stagger: 0.2,
       scrollTrigger: { trigger: container.current, start: 'bottom bottom' },
@@ -80,7 +80,7 @@ const Testimonials = () => {
             <h1 className='x-swipe text-white font-normal text-right'>
               Don't just listen to us. Here's what <i>other people</i> say.
             </h1>
-            <p className='x-swipe text-white text-right'>Real quotes from real clients; we mean business.</p>
+            <p className='x-swipe text-white text-right'>Real quotes from past clients; we mean business.</p>
           </div>
         </div>
       </div>
