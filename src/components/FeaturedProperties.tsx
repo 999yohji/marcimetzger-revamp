@@ -12,7 +12,7 @@ const FeaturedProperties = () => {
 
           <div className='flex flex-col gap-4'>
             <div>
-              <h1>Featured Properties</h1>
+              <h1><i>Featured Properties</i></h1>
               <p>Cream of the crop.</p>
             </div>
             <div className='flex flex-col gap-4'>
