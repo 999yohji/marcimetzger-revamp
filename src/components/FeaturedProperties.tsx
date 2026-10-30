@@ -2,20 +2,42 @@ import { MoveRight } from 'lucide-react'
 import villa from '../assets/villa.jpg'
 import mansion from '../assets/modernmansion.jpg'
 import { Button } from "@/components/ui/button"
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef } from 'react';
+
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 const FeaturedProperties = () => {
+  const container = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    gsap.from('.reveal', {
+      y: 80,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: container.current,
+        start: 'top 70%',
+      },
+    })
+  }, { scope: container })
+
   return (
-    <div className='min-h-svh flex flex-col p-16 gap-4 bg-[#]'>
+    <div ref={container} className='min-h-svh flex flex-col p-16 gap-4 bg-[#]'>
       <div className="flex flex-col md:flex-row gap-20 flex-1">
 
         <div className="flex-1 flex flex-col gap-16">
 
           <div className='flex flex-col gap-4'>
-            <div>
+            <div className='reveal'>
               <h1><i>Featured Properties</i></h1>
               <p>Cream of the crop.</p>
             </div>
-            <div className='flex flex-col gap-4'>
+            <div className='reveal flex flex-col gap-4'>
               <img src={mansion} alt="103 Southend Homes Property Image" className='w-full aspect-[5/4] object-cover' />
               <hr className='border-[#1D151760]' />
               <div className='flex flex-col gap-2'>
@@ -28,7 +50,7 @@ const FeaturedProperties = () => {
         </div>
 
         <div className="flex-1 flex flex-col gap-16">
-          <div className='flex flex-col items-between gap-4'>
+          <div className='reveal flex flex-col items-between gap-4'>
             <img src={villa} alt="679 King's Bridge Property Image" className='w-full aspect-[5/4] object-cover' />
             <hr className='border-[#1D151760]' />
             <div className='flex flex-col gap-2'>

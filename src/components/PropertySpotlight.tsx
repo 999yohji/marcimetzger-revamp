@@ -1,8 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import villa2 from '../assets/villa2kitchen.jpg'
 import villa2vista from '../assets/villa2backvista.jpg'
 import { Button } from "@/components/ui/button"
 import { MoveRight, Phone } from 'lucide-react'
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 const images = [
   { src: villa2, alt: 'Villa Kitchen' },
@@ -10,6 +15,22 @@ const images = [
 ]
 
 const PropertySpotlight = () => {
+  const container = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    gsap.from('.reveal', {
+      x: 80,
+      opacity: 0,
+      duration: 1,
+      ease: 'power3.out',
+      stagger: 0.2,
+      scrollTrigger: {
+        trigger: container.current,
+        start: 'top 40%',
+      },
+    })
+  }, { scope: container })
+
   const [current, setCurrent] = useState(0)
 
   useEffect(() => {
@@ -21,7 +42,7 @@ const PropertySpotlight = () => {
   }, [])
 
   return (
-    <div className="relative h-svh w-full p-16 overflow-hidden">
+    <div ref={container} className="relative h-svh w-full p-16 overflow-hidden">
       {images.map((img, i) => (
         <img
           key={img.src}
@@ -33,7 +54,7 @@ const PropertySpotlight = () => {
       ))}
 
       <div className='z-999 h-full flex justify-end items-center'>
-        <div className='bg-black/50 p-12 backdrop-blur-xs rounded-md flex flex-col gap-2'>
+        <div className='reveal bg-black/50 p-12 backdrop-blur-xs rounded-md flex flex-col gap-2'>
           <div>
             <h1 className='text-white font-normal'>Property <i>Spotlight</i></h1>
             <p className='font-[Playfair_Display] text-base text-white'><i>47 Pajero St., Beryl, UT</i></p>
