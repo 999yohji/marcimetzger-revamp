@@ -7,7 +7,6 @@ import AboutMe from './components/AboutMe'
 import Affiliations from './components/Affiliations'
 import Testimonials from './components/Testimonials'
 import SearchBy from './components/SearchBy'
-import NeighborhoodGuides from './components/NeighborhoodGuides'
 import Footer from './components/Footer'
 
 const App = () => {
@@ -21,7 +20,6 @@ const App = () => {
       <Affiliations />
       <Testimonials />
       <SearchBy />
-      <NeighborhoodGuides />
       <Footer />
     </>
   )
