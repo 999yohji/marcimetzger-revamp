@@ -31,9 +31,8 @@ const Navbar = () => {
   return (
     <nav
       aria-label="Main"
-      className={`fixed top-0 left-0 z-999 w-full min-h-[10svh] flex justify-between gap-16 items-center px-16 transition-[transform,background-color] duration-300 ease-in-out ${
-        visible ? 'translate-y-0' : '-translate-y-full'
-      } ${solid ? 'bg-[#1D1517]/95 backdrop-blur-sm' : 'bg-transparent'}`}
+      className={`fixed top-0 left-0 z-999 w-full min-h-[10svh] flex justify-between gap-16 items-center px-16 transition-[translate,background-color] duration-300 ease-in-out ${visible ? 'translate-y-0' : '-translate-y-full'
+        } ${solid ? 'bg-[#1D1517]/95 backdrop-blur-sm' : 'bg-transparent'}`}
     >
       <img
         src={logo}
