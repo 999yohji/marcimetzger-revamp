@@ -18,7 +18,7 @@ const AboutMe = () => {
       stagger: 0.2,
       scrollTrigger: {
         trigger: container.current,
-        start: 'top 40%',
+        start: 'top 70%',
       },
     })
   }, { scope: container })
