@@ -1,12 +1,14 @@
 
 import marciVideo from '../assets/marciupdated3.mp4'
 import logo from '../assets/Logo.png'
+import { useState } from 'react'
 import { Button } from "@/components/ui/button"
 
 const Hero = () => {
+  const [videoReady, setVideoReady] = useState(false)
 
   return (
-    <div className='relative h-svh w-full overflow-hidden'>
+    <div className='relative isolate h-svh w-full overflow-hidden bg-black'>
       <div className='absolute z-1 w-full h-[30%] bg-linear-to-b from-black to-transparent opacity-75' />
 
       <video
@@ -15,7 +17,9 @@ const Hero = () => {
         loop
         muted
         playsInline
-        className='absolute inset-0 z-[-1] h-full w-full object-cover' /* abso -1 z-index positioning here since it has to be "behind" */
+        onPlaying={() => setVideoReady(true)}
+        className={`absolute inset-0 z-[-1] h-full w-full object-cover pointer-events-none select-none transition-opacity duration-2000 ${
+          videoReady ? 'opacity-100' : 'opacity-0'}`} /* abso -1 z-index positioning here since it has to be "behind" */
         unselectable='on'
       />
 
