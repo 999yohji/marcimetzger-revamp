@@ -1,13 +1,9 @@
 
 import marciVideo from '../assets/marciupdated3.mp4'
 import logo from '../assets/Logo.png'
-import { useState } from 'react'
 import { Button } from "@/components/ui/button"
-import { Field } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
 
 const Hero = () => {
-  const [userPersona, setUserPersona] = useState('Buying');
 
   return (
     <div className='relative h-svh w-full overflow-hidden'>
