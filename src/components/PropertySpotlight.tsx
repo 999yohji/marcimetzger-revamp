@@ -18,12 +18,12 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 const images = [
   { src: villa2, alt: 'Villa Kitchen' },
   { src: villa2vista, alt: 'Villa Back Vista' },
-  { src: neighborhood1, alt: 'Neighborhood Aerial Shot 1'},
-  { src: neighborhood2, alt: 'Neighborhood Aerial Shot 2'},
-  { src: neighborhood3, alt: 'Neighborhood Aerial Shot 3'},
-  { src: neighborhood4, alt: 'Neighborhood Aerial Shot 4'},
-  { src: neighborhood5, alt: 'Neighborhood Aerial Shot 5'},
-  { src: neighborhood6, alt: 'Neighborhood Aerial Shot 6'},
+  { src: neighborhood1, alt: 'Neighborhood Aerial Shot 1' },
+  { src: neighborhood2, alt: 'Neighborhood Aerial Shot 2' },
+  { src: neighborhood3, alt: 'Neighborhood Aerial Shot 3' },
+  { src: neighborhood4, alt: 'Neighborhood Aerial Shot 4' },
+  { src: neighborhood5, alt: 'Neighborhood Aerial Shot 5' },
+  { src: neighborhood6, alt: 'Neighborhood Aerial Shot 6' },
 ]
 
 const PropertySpotlight = () => {
@@ -54,46 +54,54 @@ const PropertySpotlight = () => {
   }, [])
 
   return (
-    <div ref={container} className="relative isolate h-svh w-full p-16 overflow-hidden">
+    <div
+      ref={container}
+      className="relative isolate flex min-h-svh w-full items-end justify-center overflow-hidden p-4 sm:p-8 md:items-center md:justify-end lg:p-12"
+    >
       {images.map((img, i) => (
         <img
           key={img.src}
           src={img.src}
           alt={img.alt}
-          className={`absolute z-0 inset-0 h-full w-full object-cover transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'
+          className={`absolute inset-0 z-0 h-full w-full object-cover transition-opacity duration-1000 ${i === current ? 'opacity-100' : 'opacity-0'
             }`}
         />
       ))}
 
-      <div className='z-50 h-full flex justify-end items-center'>
-        <div className='reveal bg-black/50 p-12 backdrop-blur-xs rounded-md flex flex-col gap-2'>
-          <div>
-            <h1 className='text-white font-normal'>Property <i>Spotlight</i></h1>
-            <p className='font-[Playfair_Display] text-base text-white'><i>47 Pajero St., Sanctuary Homes, Pahrump, NV</i></p>
-            <p className='text-[#ACACAC]'>5 bd; 3 ba; 5,100 sqft</p>
-          </div>
-          <p className='text-white'>A homely, modern villa with a patio and an expansive yard out back smack-dab <br />in the middle of Sanctuary Homes, a newly-built Nevada community.</p>
-          <p className='text-white'>Images of the community are also visible in the slideshow.</p>
-          <div className='flex gap-2'>
-            <Button
-              variant='secondary'
-              size='lg'
-              className="cursor-pointer p-6 backdrop-blur-sm border-none"
-            >
-              <p className='flex-center gap-2'>
-                SEE FULL DETAILS <MoveRight />
-              </p>
-            </Button>
-            <Button
-              variant='outline'
-              size='lg'
-              className="cursor-pointer p-6 bg-white/10 text-white border-white/40 backdrop-blur-sm hover:bg-white/20 hover:text-white"
-            >
-              <p className='flex-center gap-2'>
-                <Phone /> BOOK A CALL 
-              </p>
-            </Button>
-          </div>
+      <div className="reveal relative z-10 flex w-full max-w-sm flex-col gap-2 rounded-md bg-black/45 p-4 backdrop-blur-xs sm:p-6 md:max-w-md">
+        <div>
+          <h1 className="text-2xl font-normal text-white md:text-3xl">
+            Property <i>Spotlight</i>
+          </h1>
+          <p className="font-[Playfair_Display] text-sm text-white md:text-base">
+            <i>47 Pajero St., Sanctuary Homes, Pahrump, NV</i>
+          </p>
+          <p className="text-sm text-[#ACACAC]">5 bd; 3 ba; 5,100 sqft</p>
+        </div>
+
+        <p className="hidden text-sm text-white sm:block">
+          A homely, modern villa with a patio and an expansive yard out back, in the middle of Sanctuary Homes, a newly-built Nevada community.
+        </p>
+
+        <div className="mt-1 flex flex-col gap-2 sm:flex-row">
+          <Button
+            variant="secondary"
+            size="lg"
+            className="w-full cursor-pointer border-none p-6 backdrop-blur-sm sm:w-auto"
+          >
+            <p className="flex-center gap-2">
+              SEE FULL DETAILS <MoveRight />
+            </p>
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="w-full cursor-pointer border-white/40 bg-white/10 p-6 text-white backdrop-blur-sm hover:bg-white/20 hover:text-white sm:w-auto"
+          >
+            <p className="flex-center gap-2">
+              <Phone /> BOOK A CALL
+            </p>
+          </Button>
         </div>
       </div>
     </div>
