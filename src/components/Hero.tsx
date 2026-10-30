@@ -27,24 +27,24 @@ const Hero = () => {
         <div className='flex flex-col gap-2'>
           <h1 className='text-white text-5xl font-normal'>Find your <i>Dream Home</i> in your <br /><i>Dream Location</i></h1>
           <p className='text-white font-normal'>Where a home is, life begins. Start anew with Marci.</p>
-          {/* <div className='relative flex bg-white max-w-[240px] rounded-md'>
-
-            <div className={`absolute top-0 left-0 w-1/2 h-full rounded-sm bg-[#1D1517] transition-transform duration-300 ease-in-out ${userPersona === 'Buying' ? 'translate-x-0' : 'translate-x-full' }`} />
-
-            <div
-              className={`relative z-10 w-1/2 h-[2rem] flex-center rounded-sm cursor-pointer transition-colors duration-300 ${userPersona === 'Buying' ? 'text-white' : 'text-black'}`}
-              onClick={() => { setUserPersona('Buying') }}
+          <div className='flex gap-2'>
+            <Button
+              variant='secondary'
+              size='lg'
+              className='cursor-pointer p-6'
             >
-              <p>Buying</p>
-            </div>
-
-            <div
-              className={`relative z-10 w-1/2 h-[2rem] flex-center rounded-sm cursor-pointer transition-colors duration-300 ${userPersona === 'Selling' ? 'text-white' : 'text-black'}`}
-              onClick={() => { setUserPersona('Selling') }}
+              <p>BROWSE PROPERTIES</p>
+            </Button>
+            <Button
+              variant="outline"
+              size='lg'
+              className="cursor-pointer p-6 bg-white/10 text-white border-white/40 backdrop-blur-sm hover:bg-white/20 hover:text-white"
             >
-              <p>Selling</p>
-            </div>
-          </div> */}
+              <p>
+                BOOK A CALL
+              </p>
+            </Button>
+          </div>
         </div>
       </div>
 
