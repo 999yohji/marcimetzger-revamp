@@ -2,7 +2,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import FeaturedProperties from './components/FeaturedProperties'
-import CallToAction from './components/CallToAction'
+import PropertySpotlight from './components/PropertySpotlight'
 import AboutMe from './components/AboutMe'
 import Affiliations from './components/Affiliations'
 import Testimonials from './components/Testimonials'
@@ -14,7 +14,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <FeaturedProperties />
-      <CallToAction />
+      <PropertySpotlight />
       <AboutMe />
       <Affiliations />
       <Testimonials />
